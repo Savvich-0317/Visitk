@@ -2,7 +2,8 @@
     width: 1024px;
     margin-left: auto;
     margin-right: auto;
-    background-color: aquamarine;
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
 }
 .header{
     display: flex;
@@ -11,19 +12,32 @@
 .consoles{
     width: 1024px;
     display: flex;
+    
 }
-.console1{
-    width: 512px;
-    height: 350px;
-    background-color: bisque;
+.forflex{
+    display: flex;
 }
-.console2{
-    width: 512px;
-    height: 350px;
-    background-color: aqua;
-
+.logo{
+    height:50px;
 }
-
+.change-theme{
+    
+}
+.gaps p{
+    margin-top: 25px;
+}
+.gaps{
+    margin-right: 40px;
+}
+.gap{
+    width: 900px;
+}
+.all{
+    height: 10000px;
+    width: auto;
+    background-color: rgb(199, 199, 199);
+    
+}
 p{
     margin-top: 0px;
     margin-bottom: 0px;

@@ -1,29 +1,33 @@
 "use strict";
 
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+let logo = document.querySelector(".change-theme");
+let background = document.querySelector(".all")
+let main = document.querySelector(".main-colon")
+let textes = document.querySelectorAll("p, h1, h2 a");
 
-let console2 = document.querySelector(".console2");
-let console1 =  document.querySelector(".console1");
+logo.addEventListener("click", (event) => {
+    event.preventDefault();
 
-let text_console2 = "Actually was back in the irc days. \n Yep, were having encryption. \n"
-let text_console1 = "Old school chatting never have been easier before! \n But were having encryption."
+    textes.forEach(el => {
+        el.style.color = "white";
+    });
+    background.style.backgroundColor = "black"
+    main.style.backgroundColor = "black"
+});
 
-const console1printMessages = async (text) => {
-    
-    for (let message of text.split("\n")) {
-        console1.innerHTML += "<p>" + message + "</p>";
-        await sleep(5000);
+checkPort('http://example.com', 0o317);
+
+async function checkPort(url, port) {
+    try {
+        const response = await fetch(`${url}:${port}`, {
+            method: 'GET',
+            mode: 'no-cors'
+        });
+        console.log(`Port ${port} on ${url} is open.`);
+        return true;
+    } catch (error) {
+        console.log(`Port ${port} on ${url} is closed or unreachable.`);
+        return false;
     }
-};
-
-const console2printMessages = async (text) => {
-    await sleep(3000);
-    for (let message of text.split("\n")) {
-        console2.innerHTML += "<p>" + message + "</p>";
-        await sleep(5000);
-    }
-};
-console1printMessages(text_console1);
-console2printMessages(text_console2);
-
+}
 
