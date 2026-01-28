@@ -15,19 +15,14 @@ logo.addEventListener("click", (event) => {
     main.style.backgroundColor = "black"
 });
 
-checkPort('http://example.com', 0o317);
+fetch('https://api.ipify.org?format=json')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('ip-address').textContent = data.ip;
+  })
+  .catch(error => {
+    console.error('Error fetching IP:', error);
+    document.getElementById('ip-address').textContent = 'Could not fetch IP';
+  });
 
-async function checkPort(url, port) {
-    try {
-        const response = await fetch(`${url}:${port}`, {
-            method: 'GET',
-            mode: 'no-cors'
-        });
-        console.log(`Port ${port} on ${url} is open.`);
-        return true;
-    } catch (error) {
-        console.log(`Port ${port} on ${url} is closed or unreachable.`);
-        return false;
-    }
-}
 

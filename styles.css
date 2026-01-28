@@ -7,8 +7,13 @@
 }
 .header{
     display: flex;
+    
 }
-
+.header img{
+    margin: 10px;
+    height: 75px;
+    margin: 25px;
+}
 .consoles{
     width: 1024px;
     display: flex;
